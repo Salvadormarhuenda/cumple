@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concierto de Coldplay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 90%;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      font-size: 2em;
+      color: #FFD700;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    input[type="file"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    video {
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Concierto de Coldplay</h1>
+    <p>Sube un video del concierto y disfrútalo aquí mismo.</p>
+
+    <!-- Input para subir un video -->
+    <input type="file" id="videoInput" accept="video/*">
+
+    <!-- Contenedor para reproducir el video -->
+    <video id="videoPlayer" controls>
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div>
+
+  <footer>
+    &copy; 2024 Coldplay Fans | Página diseñada para disfrutar de la música.
+  </footer>
+
+  <script>
+    // Referencia al input y al reproductor de video
+    const videoInput = document.getElementById('videoInput');
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    // Evento para manejar la subida del video
+    videoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const fileURL = URL.createObjectURL(file);
+        videoPlayer.src = fileURL;
+      }
+    });
+  </script>
+</body>
+</html>
